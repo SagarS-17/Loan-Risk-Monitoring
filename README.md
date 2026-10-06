@@ -88,3 +88,25 @@ processed CSV.
 | Column Name | Staged Data Type | Cleaning & Imputation |
 |-------------|------------------|-----------------------|
 | application_id | VARCHAR | Deduplicated via ROW_NUMBER() OVER (PARTITION BY ...) |  
+| application_date | DATE | Multi-format strings unified via CASE / TO_DATE |
+| applicant_age | INTEGER | Bounded to 18–100; imputed via global median |
+| applicant_income | NUMERIC | ABS() for negatives; imputed via cohort median by loan_purpose |
+| credit_score | INTEGER | Bounded to 300–850 Credit score; imputed via status-partitioned median |
+| loan_to_income_ratio | NUMERIC | Feature engineered: loan_amount / total_household_income |
+
+## Dashboard Showcase 
+ 
+● Multi-Row KPI Strip: Real-time visibility into Gross Pipeline Volume ($3.42B), 
+Conversion Rate (77.8%), and High-Risk Pipeline ($486.2M). 
+
+● Underwriting Funnel: Tracks abandonment and credit policy rejection stages. 
+
+● Credit Tier × DTI Matrix: Color-coded 3-point gradient highlighting institutional policy 
+violations in real-time.
+
+## Author & Contact
+
+Sagar Babu S 
+
+● LinkedIn : www.linkedin.com/in/sagar-babu-s
+● Email : sagarb17.08@gmail.com
