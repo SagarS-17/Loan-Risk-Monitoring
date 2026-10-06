@@ -79,8 +79,9 @@ sqlcmd -S <server_address> -U <username> -P <password> -d <database_name> -i /pa
 3. Explore the Power BI Report
    
 ● Open powerbi/loan_underwriting_dash.pbix in Power BI Desktop. 
-● Update the data source credential settings to point to your local PostgreSQL instance or 
-processed CSV. 
+
+● Update the data source credential settings to point to your local PostgreSQL instance or processed CSV. 
+
 ● Click Refresh. 
 
 ## Data Dictionary & Cleaning Pipeline
