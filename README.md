@@ -10,7 +10,6 @@ and an interactive Power BI executive dashboard.
 - [Business Problem]
 - [Project Architecture]
 - [Key Business Insights]
-- [Repository Structure]
 - [Setup & Reproduction Guide]
 - [Data Dictionary & Cleaning Pipeline]
 - [Dashboard Showcase]
@@ -60,3 +59,32 @@ carrying an average LTI of 3.82×—surpassing the institution’s 3.50× risk t
 ● Mortgage Buffer: Applicants holding active residential mortgages experienced a 14% 
 higher approval rate within identical credit score brackets (670–739 Credit score) compared to 
 renters, driven by asset collateral.
+
+## Setup & Reproduction Guide
+
+1. Generate the Synthetic Dataset
+    
+● Run the data generator to create synthetic_loan_approval_messy.csv: 
+
+Bash 
+python scripts/generate_dataset.py
+
+2. Run the SQL Cleaning Pipeline
+   
+● Load the CSV into your SQL server and execute: 
+
+Bash 
+sqlcmd -S <server_address> -U <username> -P <password> -d <database_name> -i /path/to/your/file.sql
+
+3. Explore the Power BI Report
+   
+● Open powerbi/loan_underwriting_dash.pbix in Power BI Desktop. 
+● Update the data source credential settings to point to your local PostgreSQL instance or 
+processed CSV. 
+● Click Refresh. 
+
+## Data Dictionary & Cleaning Pipeline
+
+| Column Name | Staged Data Type | Cleaning & Imputation |
+|-------------|------------------|-----------------------|
+| application_id | VARCHAR | Deduplicated via ROW_NUMBER() OVER (PARTITION BY ...) |  
