@@ -49,7 +49,7 @@ underwriting metric engineering (DTI, LTI).
 5. Analytics & BI: Star schema semantic layer in Power BI using custom DAX for credit 
 tiering, risk index benchmarks, and dynamic heatmap matrix visualizations.
 
-##Key Business Insights 
+## Key Business Insights 
 
 ● $88M in Mispriced Risk: Despite automated hard-stop policies, 18.4% of subprime applicants 
 with DTI > 43% received loan approvals due to manual branch exceptions.
